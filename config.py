@@ -1,3 +1,5 @@
+data_folder = 'data'
+
 from dotenv import load_dotenv
 import os
 
