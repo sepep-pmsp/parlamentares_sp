@@ -15,7 +15,10 @@ def load_csv(file_name: str, **read_kwargs) -> pd.DataFrame:
 
     '''
     
-    file_path = os.path.join(data_folder, file_name)
+    if file_name.startswith(data_folder):
+        file_path = file_name
+    else:
+        file_path = os.path.join(data_folder, file_name)
 
     if not os.path.exists(file_path):
 

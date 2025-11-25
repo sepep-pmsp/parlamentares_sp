@@ -25,13 +25,18 @@ class AzureMapsAdress:
         self.session = Session()
         self.add_language_headers()
 
-        self.base_url = self.build_base_url()    
+        self.base_url = self.build_base_url()
+        self.token = token
         
     def build_base_url(self)->str:
 
         return f'https://{self.host}/{self.endpoint}'
         
     
+    def clean_url(self, url:str)->str:
+
+        return url.replace(self.token, '**TOKEN_STRING**')
+
     def add_language_headers(self):
         
         #tem que colocar esse header se nao ele muda a language da
@@ -45,7 +50,7 @@ class AzureMapsAdress:
 
         query = self.build_query(address)
         url = self.base_url+'?'+query
-        print('Searching Azure Maps: ', url)
+        print('Searching Azure Maps: ', self.clean_url(url))
         with self.session.get(url) as r:
             return r
 

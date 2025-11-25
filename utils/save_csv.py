@@ -14,10 +14,16 @@ def save_csv(df: pd.DataFrame, file_name):
     '''
     
     if not os.path.exists(data_folder):
-        os.makedirs(data_folder)
+        os.mkdir(data_folder)
+
+    if not file_name.endswith('.csv'):
+        file_name += '.csv'
+
+    if file_name.startswith(data_folder):
+        file_path = file_name
+    else:
+        file_path = os.path.join(data_folder, file_name)
     
-    file_path = os.path.join(data_folder, file_name)
-    
-    df.to_csv(file_path, index = False)
+    df.to_csv(file_path, index = False, sep=';', encoding='utf-8')
 
     print(f"Base salva em {file_path}")
