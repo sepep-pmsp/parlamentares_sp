@@ -16,4 +16,3 @@ city = get_env_variable('CITY')
 state = get_env_variable('STATE')
 country_iso = get_env_variable('COUNTRY_ISO')
 
-data_folder = 'data'
