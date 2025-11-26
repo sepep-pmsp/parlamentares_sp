@@ -13,8 +13,7 @@ def get_env_variable(name:str)->str:
     except KeyError:
         raise EnvironmentError(f"Environment variable '{name}' not found.")
 
-azure_key = get_env_variable('AZURE_KEY')
-city = get_env_variable('CITY')
-state = get_env_variable('STATE')
-country_iso = get_env_variable('COUNTRY_ISO')
-
+AZURE_KEY = get_env_variable('AZURE_KEY')
+CITY = get_env_variable('CITY')
+STATE = get_env_variable('STATE')
+COUNTRY_ISO = get_env_variable('COUNTRY_ISO')
